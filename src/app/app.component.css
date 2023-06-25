@@ -1,0 +1,163 @@
+:host {
+    --game-board-width: 600px;
+    --game-board-height: 400px;
+    --paddle-height: 80px;
+    --paddle-width: 10px;
+    --paddle-speed: 5;
+    --ball-size: 10px;
+    --ball-speed-x: 3;
+    --ball-speed-y: 3;
+    --offset: 40;
+  }
+  
+  /* Add media queries to adjust the values based on screen size */
+  @media screen and (max-width: 768px) {
+    :host {
+    --game-board-width: 390px;
+    --game-board-height: 400px;
+    --paddle-height: 80px;
+    --paddle-width: 5px;
+    --paddle-speed: 5;
+    --ball-size: 5px;
+    --ball-speed-x: 3;
+    --ball-speed-y: 3;
+    --offset: 70;
+    }
+  }
+  
+  .container{
+      display: block;
+      background-color: aqua;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+  }
+  .circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 2px solid white;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+  .game-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 70vh;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100px;
+    }
+    
+    .button {
+      background-color: #ff4081;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-size: 24px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s ease;
+    }
+    
+    .button:hover {
+      background-color: #ff80ab;
+    }
+    
+    
+  .game-board {
+      position: relative;
+      width: 600px;
+      height: 400px;
+      background-color: #000;
+      border: 4px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+    }
+    
+    
+  .paddle {
+      position: absolute;
+      width: 10px;
+      height: 80px;
+      background-color: #fff;
+    }
+    
+  .player {
+      left: 20px;
+    }
+    
+  .computer {
+      right: 20px;
+    }
+    .scoreboard {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 20px;
+      font-size: 24px;
+      color: #000000;
+    }
+    
+    .scoreboard .player-score,
+    .scoreboard .computer-score {
+      margin: 0 10px;
+    }
+    
+    .scoreboard .player-score::before{
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #08fd00;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    .scoreboard .computer-score::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      background-color: #ff0000;
+      border-radius: 50%;
+      margin-right: 5px;
+    }
+    
+  .ball {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #fff;
+      border-radius: 50%;
+      animation: ball-animation 0.8s infinite alternate;
+    }
+    .line {
+      background-color: white;
+    }
+    
+    .line.vertical {
+      width: 2px;
+      height: 100%;
+      margin: 0 auto;
+    }
+    
+    
+    
+  @keyframes ball-animation {
+      0% {
+        transform: scale(1);
+      }
+      100% {
+        transform: scale(1.2);
+      }
+    }
+    
